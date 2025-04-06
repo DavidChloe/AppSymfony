@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+
+{% block body %}
+    <div class="d-flex flex-row justify-content-around flex-wrap">
+        {% for produit in listeproduits %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ asset('img/' ~ produit.lienImage) }}" height="200px" alt="image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ produit.nom }}</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Prix: {{ produit.prix }} Euros</li>
+                        <li class="list-group-item">
+                            {% if produit.rupture %}
+                                <strong>Rupture de stock</strong>
+                            {% else %}
+                                Quantité: {{ produit.quantite }}
+                            {% endif %}
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">Ajouter au Panier</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
