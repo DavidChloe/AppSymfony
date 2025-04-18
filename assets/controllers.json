@@ -1,17 +1,15 @@
 {
     "controllers": {
-        "form-collection": {
-            "enabled": true,
-            "stimulus": true
+        "@symfony/ux-turbo": {
+            "turbo-core": {
+                "enabled": true,
+                "fetch": "eager"
+            },
+            "mercure-turbo-stream": {
+                "enabled": false,
+                "fetch": "eager"
+            }
         }
     },
-    "entrypoints": [
-        {
-            "entryPointName": "app",
-            "patterns": [
-                "assets/app.js",
-                "assets/styles/app.css"
-            ]
-        }
-    ]
+    "entrypoints": []
 }
