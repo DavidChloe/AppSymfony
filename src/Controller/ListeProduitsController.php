@@ -7,17 +7,28 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Produit;
+use App\Repository\ProduitRepository; // Import the repository
 
 class ListeProduitsController extends AbstractController
 {
     #[Route('/liste', name: 'liste')]
-    public function liste(EntityManagerInterface $entityManager): Response
+    public function liste(ProduitRepository $produitsRepository): Response
     {
-        $produitsrepository = $entityManager->getRepository(Produit::class);
-        $listeproduits = $produitsrepository->findAll();
+        $listeProduits = $produitsRepository->findAll();
+        $lastProduit = $produitsRepository->getLastProduit();
 
         return $this->render('liste_produits/index.html.twig', [
-            'listeproduits' => $listeproduits,
+            'listeproduits' => $listeProduits,
+            'lastproduit' => $lastProduit,
+        ]);
+    }
+    #[Route("/eager", name: "eager")]
+    public function eager(EntityManagerInterface $entityManager)
+    {
+        $produitsRepository = $entityManager->getRepository(Produit::class);
+        $listeProduits = $produitsRepository->findAll();
+        return $this->render('liste_produits/eager.html.twig', [
+            'listeproduits' => $listeProduits,
         ]);
     }
 }

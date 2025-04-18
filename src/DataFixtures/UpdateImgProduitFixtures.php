@@ -17,22 +17,22 @@ class UpdateImgProduitFixtures extends Fixture implements FixtureGroupInterface
         foreach ($listeProduits as $monProduit) {
             switch ($monProduit->getNom()) {
                 case 'imprimantes':
-                    $monProduit->setLienImage("imprimantes.jpg");
+                    $monProduit->setlien_Image("imprimantes.jpg");
                     break;
                 case 'cartouches encre':
-                    $monProduit->setLienImage("cartouches.jpg");
+                    $monProduit->setlien_Image("cartouches.jpg");
                     break;
                 case 'ordinateurs':
-                    $monProduit->setLienImage("ordinateurs.jpg");
+                    $monProduit->setlien_Image("ordinateurs.jpg");
                     break;
                 case 'écrans':
-                    $monProduit->setLienImage("ecrans.jpg");
+                    $monProduit->setlien_Image("ecrans.jpg");
                     break;
                 case 'claviers':
-                    $monProduit->setLienImage("claviers.jpg");
+                    $monProduit->setlien_Image("claviers.jpg");
                     break;
                 case 'souris':
-                    $monProduit->setLienImage("souris.jpg");
+                    $monProduit->setlien_Image("souris.jpg");
                     break;
             }
             $manager->persist($monProduit);

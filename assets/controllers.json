@@ -11,5 +11,13 @@
             }
         }
     },
-    "entrypoints": []
+    "entrypoints": [
+        {
+            "entryPointName": "app",
+            "patterns": [
+                "assets/app.js",
+                "assets/styles/app.css"
+            ]
+        }
+    ]
 }
